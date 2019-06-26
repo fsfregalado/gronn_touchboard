@@ -46,11 +46,15 @@ char readTouchInputs(){
       for (int i=0; i < 12; i++){  // Check which electrodes were pressed
         if(MPR121.isNewTouch(i)){
               digitalWrite(LED_BUILTIN, HIGH);
-              return 'D';       
+              Serial.print('D');
+              Serial.println(i);
+              //return char(i);   
         }else{
           if(MPR121.isNewRelease(i)){
             digitalWrite(LED_BUILTIN, LOW);
-              return 'U';
+            Serial.print('U');
+            Serial.println(i);
+            //return 'U';
          } 
         }
       }
